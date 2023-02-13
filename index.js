@@ -1,20 +1,65 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+
+  if (array.length < 2) return false 
+
+  for (let i = 0; i < array.length - 1; i++){
+    for (let j =  i + 1; j < array.length; j++){
+      if (array[i] + array[j] === target){
+        return true
+      }
+    }
+  }
+  return false
 }
 
 /* 
   Write the Big O time complexity of your function here
+
+  O(n^2) because it's a nested loop
 */
 
 /* 
-  Add your pseudocode here
+  if length < 2
+    return false  
+
+  for (i = 0, i < length - 2, i ++)
+    
+    for (j = 0, j < length -1, j++)
+      if element[i] + element[j] === target
+        return true 
+
+  return false
 */
 
 /*
-  Add written explanation of your solution here
+  this is a nested loop because you are keeping track of the first element, and the pair is the index of the first element + 1 
+  x, x+1
+  so 
+  index[x] + index[x+1], index[0] + index [x+1 + 1]
+
 */
 
-// You can run `node index.js` to view these console logs
+
+
+/*
+
+when two elements of an array is added up, they equal the target value provided
+x, x+1
+x, x+2
+x, x.length -1
+x+1, x+2
+x+1, x+3
+x+1, x+4
+x+1,
+...
+x.length -1 -1,
+
+this feels like a nested loop
+
+
+*/
+
+// // You can run `node index.js` to view these console logs
 if (require.main === module) {
   // add your own custom tests in here
   console.log("Expecting: true");
